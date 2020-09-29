@@ -1,1 +1,33 @@
-<p>home works!</p>
+<div id="back">
+  <div class="backRight"></div>
+  <div class="backLeft"></div>
+</div>
+
+<div id="slideBox">
+  <div class="topLayer">
+    <div class="right">
+      <div class="content">
+        <h2>Login</h2>
+        <div class="control">
+          <div class="label">Email Address</div>
+          <input appEmailValidator [(ngModel)]="email" (noEmailEntered)="onNoMailEntered($event)"
+            (onInvalidEmailEntered)="onInvalidEmailEntered($event)" type="text" class="form-control" />
+        </div>
+        <div class="control">
+          <div class="label">Password</div>
+          <input appMandatoryField type="password" [(ngModel)]="password" class="form-control" />
+        </div>
+
+        <div class="control" *ngIf="!isValidMail">
+          <div class="label error-field">{{errorString}}</div>
+        </div>
+        <div class="text-center" *ngIf="isValidMail">
+          <button id="login" (click)="onLoginButtonClicked()">LOGIN</button>
+        </div>
+        <div class="text-center">
+          <button id="goRight"><a routerLink="register">Sign Up</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

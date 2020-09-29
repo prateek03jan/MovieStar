@@ -10,6 +10,7 @@ import { NullChechDirective } from './directives/null-chech.directive';
   declarations: [NamePipe, EmailValidatorDirective, NullChechDirective],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [NullChechDirective, EmailValidatorDirective]
 })
 export class SharedModule { }

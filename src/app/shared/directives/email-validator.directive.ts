@@ -8,7 +8,7 @@ export class EmailValidatorDirective {
   constructor(private elementRef: ElementRef) { }
 
   @Output('noEmailEntered') noEmailEntered: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output('isInvalidEmailEntered') invalidEmailEntered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output('onInvalidEmailEntered') invalidEmailEntered: EventEmitter<boolean> = new EventEmitter<boolean>();
   emailInput: string;
 
   @HostListener('keyup') onKeyUp() {
