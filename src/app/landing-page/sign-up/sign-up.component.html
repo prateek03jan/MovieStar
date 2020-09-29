@@ -1,0 +1,43 @@
+<div class="app-container">
+  <div class="signup-container">
+    <div class="container-child signup-thumbnail">
+      <div class="thumbnail-logo">
+        <h1 class="logo-text">Movie Star</h1>
+      </div>
+      <div class="thumbnail-content text-center">
+        <h1 class="heading-primary" *ngIf="name?.value === ''">Movie Star</h1>
+        <h1 class="heading-primary" *ngIf="name?.value !== ''">Hello {{name.value}}</h1>
+        <h2 class="heading-secondary">Are you ready to join the elite?</h2>
+      </div>
+      <div class="signup-overlay"></div>
+    </div>
+    <div class="container-child signup-form">
+      <h1 class="heading-primary register-link">Register</h1>
+      <form [formGroup]="signUpForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input class="form-control" type="text" placeholder="Enter your name" formControlName="name" id="name" />
+          <div class="error-div" *ngIf="(name?.dirty) && name?.errors?.required">Name is required</div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="form-control" type="text" name="email" id="email" placeholder="Enter your email"
+            formControlName="email" />
+          <div class="error-div" *ngIf="(email?.dirty) && email?.errors?.required">Email is required</div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="form-control" type="password" name="password" formControlName="password" placeholder="**********"/>
+          <div class="error-div" *ngIf="(password?.dirty) && password?.errors?.required">Password is required</div>
+        </div>
+        <div class="m-t-lg">
+          <ul class="list-inline">
+            <li>
+              <input class="btn btn-form" type="submit" value="Register" (click)="onSubmitButtonClicked()" />
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

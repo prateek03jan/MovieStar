@@ -4,6 +4,15 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
 
 const routes: Routes = [
   {
+    path: 'welcome',
+    loadChildren: () => import('./landing-page/landing-page.module').then(m => m.LandingPageModule)
+  },
+  {
+    path: '',
+    redirectTo: '/welcome',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }
