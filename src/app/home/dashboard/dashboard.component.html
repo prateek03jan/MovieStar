@@ -1,0 +1,10 @@
+<div class="searchBox">
+  <input class="searchInput" type="text" [(ngModel)]="movieToSearch" placeholder="Enter a movie name...">
+  <button class="searchButton" (click)="searchMovie()">
+    <i class="material-icons">
+      search
+    </i>
+  </button>
+</div>
+
+<div *ngIf="movie">{{movie.Title}}</div>
