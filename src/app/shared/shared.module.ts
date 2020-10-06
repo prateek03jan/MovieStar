@@ -4,8 +4,6 @@ import { NamePipe } from './pipes/name.pipe';
 import { EmailValidatorDirective } from './directives/email-validator.directive';
 import { NullChechDirective } from './directives/null-chech.directive';
 
-
-
 @NgModule({
   declarations: [NamePipe, EmailValidatorDirective, NullChechDirective],
   imports: [

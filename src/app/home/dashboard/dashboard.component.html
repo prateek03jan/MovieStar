@@ -1,4 +1,4 @@
-<div class="searchBox">
+<!-- <div class="searchBox">
   <input class="searchInput" type="text" [(ngModel)]="movieToSearch" placeholder="Enter a movie name...">
   <button class="searchButton" (click)="searchMovie()">
     <i class="material-icons">
@@ -7,4 +7,60 @@
   </button>
 </div>
 
-<div *ngIf="movie">{{movie.Title}}</div>
+<div *ngIf="movie">{{movie.Title}}</div> -->
+<div *ngIf="!movie">
+  <h1 class="welcome-message">
+    Hello
+  </h1>
+  <div class="container">
+    <input type="text" placeholder="Search your movie" [(ngModel)]="movieToSearch">
+    <div class="search"></div>
+  </div>
+
+  <div class="info-container" *ngIf="movieToSearch !== ''">
+    Press enter to search
+  </div>
+</div>
+
+<div *ngIf="movie" class="row movie-info-container">
+  <div class="col-md-5 img-container">
+    <img [src]="movie?.Poster" />
+  </div>
+  <div class="col-md-7 right-pane">
+    <div class="imdb-rating">{{movie?.imdbRating}}
+      <div>IMDb rating</div>
+    </div>
+    <h1 class="movie-name">{{movie?.Title}}</h1>
+    <h4 class="movie-production">{{movie?.Production}}</h4>
+    <h4 class="movie-general-info">
+      {{movie?.Year}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{movie?.Country}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{movie?.Runtime}}
+    </h4>
+    <h2 class="movie-plot">{{movie?.Plot}} {{movie?.Awards}}</h2>
+    <span class="movie-genre" *ngFor="let g of movieGenre">{{g}}</span>
+    <div class="row movie-cast-info-container">
+      <div class="col-md-4">
+        <h4>Directed by</h4>
+        <h2 class="yellow-text">{{movie?.Director}}</h2>
+      </div>
+      <div class="col-md-4">
+        <h4>Cast</h4>
+        <h2 class="yellow-text">{{movie?.Actors}}</h2>
+      </div>
+      <div class="col-md-4">
+        <h4>Languages</h4>
+        <h2 class="yellow-text">{{movie?.Language}}</h2>
+      </div>
+    </div>
+
+    <!-- <div class="row rating-container">
+      <div class="col-md-4" *ngFor="let r of movie?.Ratings">
+        <div class="ratings-value">
+          {{r.Value}}
+        </div>
+        <div class="ratings-source">
+          {{r.Source}}
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

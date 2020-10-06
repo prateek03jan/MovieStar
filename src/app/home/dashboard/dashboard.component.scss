@@ -1,53 +1,291 @@
-.searchBox {
-    position     : absolute;
-    left         : 50%;
-    transform    : translate(-50%, 50%);
-    background   : #2f3640;
-    height       : 60px;
-    border-radius: 40px;
-    padding      : 10px;
+// .searchBox {
+//     position     : absolute;
+//     top          : -6%;
+//     left         : 96%;
+//     transform    : translate(-50%, 50%);
+//     background   : #2f3640;
+//     height       : 60px;
+//     border-radius: 40px;
+//     padding      : 10px;
+// }
+
+// .searchBox:hover>.searchInput {
+//     width  : 400px;
+//     padding: 0 6px;
+// }
+
+// .searchBox:hover>.searchButton {
+//     background: white;
+//     color     : #2f3640;
+// }
+
+// .searchButton {
+//     color          : white;
+//     float          : right;
+//     width          : 40px;
+//     height         : 40px;
+//     border-radius  : 50%;
+//     background     : #2f3640;
+//     display        : flex;
+//     justify-content: center;
+//     align-items    : center;
+//     transition     : 0.4s;
+// }
+
+// .searchInput {
+//     border     : none;
+//     background : none;
+//     outline    : none;
+//     float      : left;
+//     padding    : 0;
+//     color      : white;
+//     font-size  : 16px;
+//     transition : 0.4s;
+//     line-height: 40px;
+//     width      : 0px;
+
+// }
+
+// @media screen and (max-width: 620px) {
+//     .searchBox:hover>.searchInput {
+//         width  : 150px;
+//         padding: 0 6px;
+//     }
+// }
+
+// .movie-name {
+//     font-size: 40px;
+// }
+
+.example-full-width {
+    width      : 90%;
+    margin-left: 8%;
 }
 
-.searchBox:hover>.searchInput {
-    width  : 400px;
-    padding: 0 6px;
+.welcome-message {
+    text-align : center;
+    font-size  : 150px;
+    color      : #444;
+    padding-top: 10%;
 }
 
-.searchBox:hover>.searchButton {
-    background: white;
-    color     : #2f3640;
+.container {
+    position: absolute;
+    margin  : auto;
+    top     : 0;
+    left    : 0;
+    right   : 0;
+    bottom  : 0;
+    width   : 300px;
+    height  : 100px;
+
+    .search {
+        position     : absolute;
+        margin       : auto;
+        top          : 0;
+        right        : 0;
+        bottom       : 0;
+        left         : 0;
+        width        : 80px;
+        height       : 80px;
+        background   : #444;
+        border-radius: 50%;
+        transition   : all 1s;
+        z-index      : 4;
+        box-shadow   : 0 0 25px 0 rgba(0, 0, 0, 0.4);
+
+        // box-shadow: 0 0 25px 0 crimson;
+        &:hover {
+            cursor: pointer;
+        }
+
+        &::before {
+            content   : "";
+            position  : absolute;
+            margin    : auto;
+            top       : 22px;
+            right     : 0;
+            bottom    : 0;
+            left      : 22px;
+            width     : 12px;
+            height    : 2px;
+            background: white;
+            transform : rotate(45deg);
+            transition: all .5s;
+        }
+
+        &::after {
+            content      : "";
+            position     : absolute;
+            margin       : auto;
+            top          : -5px;
+            right        : 0;
+            bottom       : 0;
+            left         : -5px;
+            width        : 25px;
+            height       : 25px;
+            border-radius: 50%;
+            border       : 2px solid white;
+            transition   : all .5s;
+        }
+    }
+
+    input {
+        position        : absolute;
+        margin          : auto;
+        top             : 0;
+        right           : 0;
+        bottom          : 0;
+        left            : 0;
+        width           : 50px;
+        height          : 50px;
+        outline         : none;
+        border          : none;
+        // border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        background      : #444;
+        color           : white;
+        text-shadow     : 0 0 10px #444;
+        padding         : 0 80px 0 20px;
+        border-radius   : 30px;
+        box-shadow      : 0 0 25px 0 #444,
+            0 20px 25px 0 rgba(0, 0, 0, 0.2);
+        // box-shadow: inset 0 0 25px 0 rgba(0, 0, 0, 0.5);
+        transition    : all 1s;
+        opacity       : 0;
+        z-index       : 5;
+        font-weight   : bolder;
+        letter-spacing: 0.1em;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            width  : 300px;
+            opacity: 1;
+            cursor : text;
+        }
+
+        &:focus~.search {
+            right     : -250px;
+            background: #151515;
+            z-index   : 6;
+
+            &::before {
+                top  : 0;
+                left : 0;
+                width: 25px;
+            }
+
+            &::after {
+                top          : 0;
+                left         : 0;
+                width        : 25px;
+                height       : 2px;
+                border       : none;
+                background   : white;
+                border-radius: 0%;
+                transform    : rotate(-45deg);
+            }
+        }
+
+        &::placeholder {
+            color      : white;
+            opacity    : 0.5;
+            font-weight: bolder;
+        }
+    }
 }
 
-.searchButton {
-    color          : white;
-    float          : right;
-    width          : 40px;
-    height         : 40px;
-    border-radius  : 50%;
-    background     : #2f3640;
-    display        : flex;
-    justify-content: center;
-    align-items    : center;
-    transition     : 0.4s;
+.info-container {
+    text-align : center;
+    padding-top: 15%;
+    color      : #444;
 }
 
-.searchInput {
-    border     : none;
-    background : none;
-    outline    : none;
-    float      : left;
-    padding    : 0;
-    color      : white;
-    font-size  : 16px;
-    transition : 0.4s;
-    line-height: 40px;
-    width      : 0px;
+.img-container {
+    height: 100vh;
 
+    >img {
+        height: 100%;
+    }
 }
 
-@media screen and (max-width: 620px) {
-    .searchBox:hover>.searchInput {
-        width  : 150px;
-        padding: 0 6px;
+.movie-info-container {
+    background-image: linear-gradient(to right, #434343 0%, #222222 100%);
+    color           : #fff;
+}
+
+.right-pane {
+    padding-left: 5px;
+
+    .movie-name {
+        padding-left: 0px;
+        font-size   : 70px;
+        padding-top : 40px;
+    }
+
+    .movie-production,
+    .movie-general-info {
+        color         : #fdeb40;
+        padding-bottom: 10px;
+        padding-top   : 10px;
+    }
+
+    .movie-general-info {
+        border-bottom: 1px solid #65737e;
+    }
+
+    .movie-plot {
+        text-align: justify;
+    }
+
+    .movie-genre {
+        background-color: #fdeb40;
+        color           : #222;
+        padding         : 5px;
+        margin          : 5px;
+        border-radius   : 13px;
+        font-size       : 13px;
+    }
+
+    .movie-cast-info-container {
+        margin-top : 30px;
+        padding-top: 20px;
+
+        .yellow-text {
+            color: #fdeb40;
+        }
+    }
+
+    .imdb-rating {
+        position      : fixed;
+        right         : 50px;
+        top           : 60px;
+        color         : #fdeb40;
+        font-size     : 60px;
+        border-bottom : 2px solid #fdeb40;
+        padding-bottom: 20px;
+
+        >div {
+            position  : absolute;
+            font-size : 16px;
+            margin-top: 30px;
+            text-align: center;
+        }
+    }
+
+    .rating-container {
+        margin-top   : 40px;
+        // text-align: center;
+    }
+
+    .ratings-value {
+        color    : #fdeb40;
+        font-size: 50px;
+    }
+
+    .ratings-source {
+        margin-top: 20px;
     }
 }

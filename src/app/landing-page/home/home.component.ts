@@ -12,8 +12,8 @@ import { MovieUtilityService } from 'src/app/shared/services/movie-utility.servi
 export class HomeComponent implements OnInit {
 
   movieContext: MovieInformation;
-  email: string = 'Prateek Gangopadhyay';
-  password: string;
+  email: string = 'test@test.com';
+  password: string = 'test';
   isValidMail: boolean;
   errorString: string;
   date: Date = new Date();
@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
   }
 
   onInvalidEmailEntered(event: boolean) {
-    debugger;
     this.isValidMail = event;
     if (!this.isValidMail) {
       this.errorString = 'Invalid email id...';

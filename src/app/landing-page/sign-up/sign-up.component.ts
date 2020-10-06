@@ -41,7 +41,6 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmitButtonClicked() {
-    debugger;
     // Code to call the service of registering an user
   }
 }
